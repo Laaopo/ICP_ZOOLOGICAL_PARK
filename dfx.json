@@ -1,0 +1,13 @@
+{
+    "canisters": {
+        "icp_zoological_park": {
+            "type": "custom",
+            "build": "npx azle icp_zoological_park",
+            "root": "src",
+            "ts": "src/index.ts",
+            "candid": "src/index.did",
+            "wasm": ".azle/icp_zoological_park/icp_zoological_park.wasm.gz"
+        }
+    }
+}
+

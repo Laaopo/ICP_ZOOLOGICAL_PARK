@@ -1,0 +1,42 @@
+type Animal = record {
+  id : text;
+  age : float64;
+  name : text;
+  createdAt : nat64;
+  updatedAt : opt nat64;
+  zooId : text;
+  animalType : text;
+};
+type AnimalPayload = record {
+  age : float64;
+  name : text;
+  zooId : text;
+  animalType : text;
+};
+type Zoo = record {
+  id : text;
+  animalSpecies : vec text;
+  owner : principal;
+  name : text;
+  createdAt : nat64;
+  updatedAt : opt nat64;
+  image : text;
+  location : text;
+};
+type ZooPayload = record { name : text; image : text; location : text };
+type _AzleResult = variant { Ok : Zoo; Err : text };
+type _AzleResult_1 = variant { Ok : Animal; Err : text };
+type _AzleResult_2 = variant { Ok : vec Animal; Err : text };
+type _AzleResult_3 = variant { Ok : vec Zoo; Err : text };
+service : () -> {
+  addAnimalToZoo : (text, text) -> (_AzleResult);
+  createAnimal : (AnimalPayload) -> (_AzleResult_1);
+  createZoo : (ZooPayload) -> (_AzleResult);
+  deleteAnimalFromZoo : (text, text) -> (_AzleResult);
+  deleteZoo : (text) -> (_AzleResult);
+  getAllAnimals : () -> (_AzleResult_2) query;
+  getAllZoos : () -> (_AzleResult_3) query;
+  getAnimal : (text) -> (_AzleResult_1) query;
+  getZoo : (text) -> (_AzleResult) query;
+  updateZoo : (text, ZooPayload) -> (_AzleResult);
+}
