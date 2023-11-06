@@ -36,7 +36,7 @@ service : () -> {
   deleteZoo : (text) -> (_AzleResult);
   getAllAnimals : () -> (_AzleResult_2) query;
   getAllZoos : () -> (_AzleResult_3) query;
-  getAnimal : (text) -> (_AzleResult_1) query;
-  getZoo : (text) -> (_AzleResult) query;
+  getAnimalById : (text) -> (_AzleResult_1) query;
+  getZooById : (text) -> (_AzleResult) query;
   updateZoo : (text, ZooPayload) -> (_AzleResult);
 }
